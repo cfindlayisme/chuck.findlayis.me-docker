@@ -1,0 +1,1 @@
+This is a repo that builds my personal website in a simple nginx docker image so that I can publish the image each time I do an update to it.
