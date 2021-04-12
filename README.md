@@ -1,5 +1,5 @@
-This image automatically builds into Google Cloud Services for me to deploy to my backend as I please on each commit.
+This container hosts up my personal website on port 80.
 
-If you build and run this on your own machine you'll view the same website I have on https://chuck.findlayis.me served up by nginx on port 80 of the docker container. My website sits behind a load balancer for HTTPS access, so no HTTPS configuration is in nginx on this container.
+If you build and run this on your own machine you'll view the same website I have on https://chuck.findlayis.me served up by nginx on port 80 of the docker container.
 
-I chose this way of serving a personal website to allow me to experiment with a very simple container pipeline and scaling/global load balancing.
+I use this as a way to experiement with containers. If you access my website right now, you're going through a frontend that connects to kubernetes running this container.
