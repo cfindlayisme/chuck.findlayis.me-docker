@@ -1,0 +1,22 @@
+before_script:
+  - docker info
+  - export VERSION=$(date +%y.%m)
+
+stages:          # List of stages for jobs, and their order of execution
+  - build
+  - deploy
+
+build-job:       # This job runs in the build stage, which runs first.
+  stage: build
+  script:
+    - echo "Build docker image.."
+    - docker build -t cfindlayisme/chuck.findlayis.me-docker:$VERSION
+    - echo "Completed build of docker image"
+
+deploy-job:      # This job runs in the deploy stage.
+  stage: deploy  # It only runs when *both* jobs in the test stage complete successfully.
+  environment: production
+  script:
+    - echo "Pushing image to dockerhub"
+    - docker push cfindlayisme/chuck.findlayis.me-docker:$VERSION
+    - echo "Image pushed to dockerhub"
