@@ -7,10 +7,7 @@ before_script:
   # SSH deploy info
   - 'which ssh-agent || ( apt-get install -qq openssh-client )'
   - eval $(ssh-agent -s)
-  - echo $SSH_PRIVATE_KEY > /key
-  - chmod 600 /key
-  - ssh-add /key
-  - rm /key
+  - echo "$SSH_PRIVATE_KEY" | tr -d '\r' | ssh-add -
   - mkdir -p ~/.ssh
   - '[[ -f /.dockerenv ]] && echo -e "Host *\n\tStrictHostKeyChecking no\n\n" > ~/.ssh/config'
 
