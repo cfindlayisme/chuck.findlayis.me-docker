@@ -1,7 +1,7 @@
 function viewHome() {
     $('#content').html('<ul class="lead list-group">\
-        <li class="list-group-item list-group-item-secondary">Linux Platform & Device Engineer in Canada</li>\
-        <li class="list-group-item list-group-item-secondary">Hobbiest Programmer/Sysadmin</li>\
+        <li class="list-group-item list-group-item-secondary">Software Developer in Canada</li>\
+        <li class="list-group-item list-group-item-secondary"><a target="_blank" href="/pubkey.asc">My public GPG key</a></li>\
     </ul>');
 }
 
