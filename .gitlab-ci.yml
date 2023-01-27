@@ -2,7 +2,6 @@ services:
   - docker:20.10.16-dind
 
 before_script:
-  - docker info
   - docker login -u "$CI_REGISTRY_USER" -p "$CI_REGISTRY_PASSWORD" $CI_REGISTRY
   # SSH deploy info
   - 'which ssh-agent || ( apt-get install -qq openssh-client )'
@@ -20,8 +19,10 @@ build-job:
   script:
     - echo "Build docker image.."
     - docker build -t $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA ./
+    - docker tag $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA $CI_REGISTRY_IMAGE:latest
     - echo "Success, pushing to dockerhub"
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
+    - docker push $CI_REGISTRY_IMAGE:latest
 
 deploy-job:
   stage: deploy 
