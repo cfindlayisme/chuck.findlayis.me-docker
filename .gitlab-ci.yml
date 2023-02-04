@@ -24,11 +24,11 @@ build-job:
     - docker push $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA
     - docker push $CI_REGISTRY_IMAGE:latest
 
-deploy-job:
-  stage: deploy 
-  environment: production
-  script:
-    - echo "Deploying to production enviorment"
-    - ssh $SSH_SERVER "docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA && docker container stop website && docker container rm website && docker run -d -p 8000:80 --name=website $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
-  only:
-    - production
+#deploy-job:
+#  stage: deploy 
+#  environment: production
+#  script:
+#    - echo "Deploying to production enviorment"
+#    - ssh $SSH_SERVER "docker pull $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA && docker container stop website && docker container rm website && docker run -d -p 8000:80 --name=website $CI_REGISTRY_IMAGE:$CI_COMMIT_SHORT_SHA"
+#  only:
+#    - production
