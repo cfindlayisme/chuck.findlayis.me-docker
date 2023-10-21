@@ -34,3 +34,15 @@ jobs:
         
     - name: Push the Docker image
       run: docker push ${{ secrets.DOCKER_REPO }}
+
+    - name: Deploy to production
+      uses: appleboy/ssh-action@master
+      with:
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_SECRET }}
+        port: 22
+        script: |
+          cd /srv/chuck.findlayis.me-docker
+          docker compose pull
+          docker compose up -d
