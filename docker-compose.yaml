@@ -1,0 +1,10 @@
+version: "3"
+
+services:
+
+  chuckfindlayisme:
+    image: gitea.findlayis.me/chuck/chuck.findlayis.me-docker:latest
+    container_name: chuckfindlayisme
+    ports:
+     - "127.0.0.1:8080:80"
+    restart: unless-stopped
