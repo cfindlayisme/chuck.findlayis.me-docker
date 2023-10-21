@@ -4,4 +4,4 @@ If you build and run this on your own machine you'll view the same website I hav
 
 It is a braindead simple image - not much to it. You can also just pull it from [cfindlayisme/chuck.findlayis.me-docker](https://hub.docker.com/repository/docker/cfindlayisme/chuck.findlayis.me-docker)
 
-I have a Gitlab pipeline that auto-deploys this when pushed to the production branch as an example of my CI/CD experience.
+It is auto deployed through a github action pipeline to my prod docker server, after passing some basic tests in the pipeline.
