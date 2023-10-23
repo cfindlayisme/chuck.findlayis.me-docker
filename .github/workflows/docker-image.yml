@@ -37,6 +37,11 @@ jobs:
     - name: Push the Docker image
       run: docker push ${{ secrets.DOCKER_REPO }}
 
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+
+    steps:
     - name: Deploy to production
       uses: appleboy/ssh-action@master
       with:
@@ -49,11 +54,6 @@ jobs:
           docker compose pull
           docker compose up -d
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
     - name: Smoke test production deployment
       uses: lakuapik/gh-actions-http-status@v1
       with:
