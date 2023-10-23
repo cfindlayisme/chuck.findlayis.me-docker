@@ -2,6 +2,8 @@ name: Build & Push Staging Docker Image
 
 on:
   push:
+  pull_request:
+    branches: [master, main]
 
 jobs:
   
