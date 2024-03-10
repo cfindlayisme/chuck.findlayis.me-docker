@@ -13,9 +13,9 @@ function viewContact() {
     </ul>');
 }
 function viewCodingLanguages() {
-    $('#content').html('<h3>Coding Languages</h3>\
-    <p>By no means an exhaustive list of languages I have experience in, but a few links to examples of projects I\'ve written in said languages.</p>\
-    <p>This is kind of an in-progress list, as I\'ve not had much time lately to update it. If you want to just look at my Github, the link is in the top right corner of the page</p>\
+    $('#content').html('<h3>Coding Portfolio</h3>\
+    <p>By no means an exhaustive list of languages I have experience in, but a few links to examples of projects I\'ve written in a list of languages.</p>\
+    <p>This is kind of an in-progress list, as I\'ve not had much time lately to update it. If you want to just look at my Github, the link is in the top right corner of the page. Also, some projects cross into multiple languages/frameworks/technologies</p>\
     <ul class="list-group bg-dark">\
         <li class="list-group-item list-group-item-dark">Go (Golang)<br>\
         <a href="https://github.com/cfindlayisme/wmb" class="text-secondary" target="_blank">wmb (Webhook Message Bot, IRC)</a>\
