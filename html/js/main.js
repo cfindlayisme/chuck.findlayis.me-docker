@@ -12,6 +12,18 @@ function viewContact() {
         <li class="list-group-item list-group-item-secondary">Email: chuck@findlayis.me</li>\
     </ul>');
 }
+function viewCodingLanguages() {
+    $('#content').html('<h3>Coding Languages</h3>\
+    <p>By no means an exhaustive list of languages I have experience in, but a few links to examples of projects I\'ve written in said languages.</p>\
+    <p>This is kind of an in-progress list, as I\'ve not had much time lately to update it. If you want to just look at my Github, the link is in the top right corner of the page</p>\
+    <ul class="list-group bg-dark">\
+        <li class="list-group-item list-group-item-dark">Go (Golang)<br>\
+        <a href="https://github.com/cfindlayisme/wmb" class="text-secondary" target="_blank">wmb (Webhook Message Bot, IRC)</a>\
+        </li>\
+        <li class="list-group-item list-group-item-dark">JavaScript (Node, etc)<br>\
+        <a href="https://github.com/cfindlayisme/chuck.findlayis.me-docker" class="text-secondary" target="_blank">This site (link to repo)</a></li>\
+        <li class="list-group-item list-group-item-dark">Docker</li>');
+}
 
 function navSelected(selected) {
     $('.nav-link').each(function() {
