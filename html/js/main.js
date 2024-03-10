@@ -8,8 +8,13 @@ function viewHome() {
 }
 
 function viewContact() {
-    $('#content').html('<ul class="lead list-group">\
-        <li class="list-group-item list-group-item-secondary">Email: chuck@findlayis.me</li>\
+    $('#content').html('<h3 class="lead">Contact</h3>\
+    <p>Email is the preferred way to contact me async, but Linkedin is good too. IRC is where I would go for sync conversations after some email chatting. I don\'t do Twitter/X, Facebook, etc.</p>\
+    <p>PGP key is available <a href="https://chuck.findlayis.me/pubkey.asc" target="_blank" class="text-secondary">here</a> to use for emails if you\'re the type to do encrypted chats.</p>\
+    <ul class="list-group">\
+        <li class="list-group-item list-group-item-secondary">chuck@findlayis.me</li>\
+        <li class="list-group-item list-group-item-secondary"><a href="https://www.linkedin.com/in/charlesrfindlay/" target="_blank" class="text-secondary">Linkedin</a></li>\
+        <li class="list-group-item list-group-item-secondary">Darkfoe on <a href="ircs://irc.serverfail.party:6697" target="_blank" class="text-secondary">irc.serverfail.party</a></li>\
     </ul>');
 }
 function viewCodingLanguages() {
