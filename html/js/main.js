@@ -3,7 +3,8 @@ function viewHome() {
         <h3>Software Developer in Canada</h3>\
         <p class="lead"><a target="_blank" href="https://chuck.findlayis.me/pubkey.asc">My public GPG key (click)</a></p>\
         <p>I write code both professionally and as a hobby</p>\
-        <img src="img/vscode-sshot.png" class="img-fluid rounded" alt="Visual Studio Code Screenshot">\
+        <img src="img/vscode-sshot.png" class="img-fluid rounded mb-3" alt="Visual Studio Code Screenshot">\
+        <p>Site lovingly handcrafted (no WYSIWYG editor) by myself with a CI/CD pipeline. Bootstrap used to make it prettier.</p>\
     ');
 }
 
@@ -12,7 +13,7 @@ function viewContact() {
     <p>Email is the preferred way to contact me async, but Linkedin is good too. IRC is where I would go for sync conversations after some email chatting. I don\'t do Twitter/X, Facebook, etc.</p>\
     <p>PGP key is available <a href="https://chuck.findlayis.me/pubkey.asc" target="_blank" class="text-secondary">here</a> to use for emails if you\'re the type to do encrypted chats.</p>\
     <ul class="list-group">\
-        <li class="list-group-item list-group-item-secondary">chuck@findlayis.me</li>\
+        <li class="list-group-item list-group-item-secondary"><a href="mailto:chuck@findlayis.me" class="text-secondary">chuck@findlayis.me</a></li>\
         <li class="list-group-item list-group-item-secondary"><a href="https://www.linkedin.com/in/charlesrfindlay/" target="_blank" class="text-secondary">Linkedin</a></li>\
         <li class="list-group-item list-group-item-secondary">Darkfoe on <a href="ircs://irc.serverfail.party:6697" target="_blank" class="text-secondary">irc.serverfail.party</a></li>\
     </ul>');
