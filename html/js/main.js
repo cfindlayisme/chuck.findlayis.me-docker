@@ -2,7 +2,7 @@ function viewHome() {
     $('#content').html('\
         <h3>Software Developer in Canada</h3>\
         <p class="lead"><a target="_blank" href="https://chuck.findlayis.me/pubkey.asc">My public GPG key (click)</a></p>\
-        <p>I write code as both professionally and as a hobby</p>\
+        <p>I write code both professionally and as a hobby</p>\
         <img src="img/vscode-sshot.png" class="img-fluid rounded" alt="Visual Studio Code Screenshot">\
     ');
 }
