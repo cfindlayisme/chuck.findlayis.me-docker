@@ -23,12 +23,15 @@ function viewCodingLanguages() {
     <p>By no means an exhaustive list of languages/technologies I have experience in, but a few links to examples of projects I\'ve written in a list of languages. Not all projects are complete, but you can at least see my thought process in those. Almost all have fully functional automated builds, with some having full CI/CD for myself.</p>\
     <ul class="list-group bg-dark">\
         <li class="list-group-item list-group-item-dark">Go (Golang)<br>\
-        <a href="https://github.com/cfindlayisme/wmb" class="text-secondary" target="_blank">wmb (Webhook Message Bot, IRC)</a>\
+        <a href="https://github.com/cfindlayisme/wmb" class="text-secondary" target="_blank">wmb (Webhook Message Bot, IRC)</a><br>\
+        <a href="https://github.com/cfindlayisme/rss-wmb" class="text-secondary" target="_blank">rss-wmb (rss feed -> wmb -> IRC message)</a>\
         </li>\
         <li class="list-group-item list-group-item-dark">JavaScript (Node, etc)<br>\
         <a href="https://github.com/cfindlayisme/chuck.findlayis.me-docker" class="text-secondary" target="_blank">This site (link to repo)</a></li>\
         <li class="list-group-item list-group-item-dark">Docker<br>\
-        <a href="https://github.com/cfindlayisme/factorio-docker" target="_blank" class="text-secondary">factorio-docker</a></li>\
+        <a href="https://github.com/cfindlayisme/factorio-docker" target="_blank" class="text-secondary">factorio-docker</a><br>\
+        <a href="https://github.com/cfindlayisme/terraria-docker" target="_blank" class="text-secondary">terraria-docker</a><br>\
+        <a href="https://github.com/cfindlayisme/steamcmd" target="_blank" class="text-secondary">steamcmd (dockerized)</a></li>\
         <li class="list-group-item list-group-item-dark">Generative AI<br>\
         <a href="https://github.com/cfindlayisme/whatcanimake" target="_blank" class="text-secondary">whatcanimake - LLM powered recipe generator</a></li>\
         </li>');
