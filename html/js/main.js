@@ -28,7 +28,8 @@ function viewCodingLanguages() {
         </li>\
         <li class="list-group-item list-group-item-dark">JavaScript (Node, etc)<br>\
         <a href="https://github.com/cfindlayisme/chuck.findlayis.me-docker" class="text-secondary" target="_blank">This site (link to repo)</a><br>\
-        <a href="https://gsmanager.serverfail.party" class="text-secondary" target="_blank">gsmanager (game server control panel - closed source)</a></li>\
+        <a href="https://gsmanager.serverfail.party" class="text-secondary" target="_blank">gsmanager (game server control panel - closed source)</a><br>\
+        <a href="https://darkfoe.ca" class="text-secondary" target="_blank">My blog (closed source - NodeJS)</a></li>\
         <li class="list-group-item list-group-item-dark">Docker<br>\
         <a href="https://github.com/cfindlayisme/factorio-docker" target="_blank" class="text-secondary">factorio-docker</a><br>\
         <a href="https://github.com/cfindlayisme/terraria-docker" target="_blank" class="text-secondary">terraria-docker</a><br>\
