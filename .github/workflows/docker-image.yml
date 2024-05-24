@@ -77,6 +77,9 @@ jobs:
           sites: '["https://chuck.findlayis.me/", "https://chuck.findlayis.me/404"]'
           expected: '[200, 404]'
 
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
       - name: Notify IRC Success
         run: |
           export COMMIT_MSG=$(git log -1 --pretty=%B)
