@@ -76,3 +76,16 @@ jobs:
         with:
           sites: '["https://chuck.findlayis.me/", "https://chuck.findlayis.me/404"]'
           expected: '[200, 404]'
+
+      - name: Notify IRC Success
+        run: |
+          export COMMIT_MSG=$(git log -1 --pretty=%B)
+          export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} completed successfully with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 3}" https://convos.findlayis.me/wmb/message
+        if: success()
+      - name: Notify IRC Failure
+        run: |
+          export COMMIT_MSG=$(git log -1 --pretty=%B)
+          export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} failed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+          curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 4}" https://convos.findlayis.me/wmb/message
+        if: failure()
