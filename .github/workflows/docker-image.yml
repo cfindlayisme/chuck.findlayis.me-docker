@@ -82,6 +82,7 @@ jobs:
 
         - name: Restart Deployment
           run: |
+            kubectl -n staging rollout restart deployment chuckfindlayisme
             kubectl -n production rollout restart deployment chuckfindlayisme
 
         - name: Smoke test production deployment
