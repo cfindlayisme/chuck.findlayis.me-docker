@@ -67,36 +67,41 @@ jobs:
       runs-on: ubuntu-latest
       if: github.ref == 'refs/heads/main'
       steps:
-      - name: Deploy to production
-        uses: appleboy/ssh-action@master
-        with:
-          host: ${{ secrets.SSH_HOST }}
-          username: ${{ secrets.SSH_USERNAME }}
-          key: ${{ secrets.SSH_SECRET }}
-          port: 22
-          script: |
-            cd /srv/chuck.findlayis.me-docker
-            docker compose pull
-            docker compose up -d
+        - name: Checkout code
+          uses: actions/checkout@v3
 
-      - name: Smoke test production deployment
-        uses: lakuapik/gh-actions-http-status@v1
-        with:
-          sites: '["https://chuck.findlayis.me/", "https://chuck.findlayis.me/404"]'
-          expected: '[200, 404]'
+        - name: Set up kubectl
+          uses: azure/setup-kubectl@v3
+          # with:
+          #   version: 'v1.27.0'  # Adjust the version as per your Kubernetes version
 
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-      - name: Notify IRC Success
-        run: |
-          export COMMIT_MSG=$(git log -1 --pretty=%B)
-          export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} completed successfully with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 3}" https://convos.findlayis.me/wmb/message
-        if: success()
-      - name: Notify IRC Failure
-        run: |
-          export COMMIT_MSG=$(git log -1 --pretty=%B)
-          export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} failed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-          curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 4}" https://convos.findlayis.me/wmb/message
-        if: failure()
+        - name: Set up KUBECONFIG
+          run: |
+            mkdir -p $HOME/.kube
+            echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
+
+        - name: Restart Deployment
+          run: |
+            kubectl -n production rollout restart deployment chuckfindlayisme
+
+        - name: Smoke test production deployment
+          uses: lakuapik/gh-actions-http-status@v1
+          with:
+            sites: '["https://chuck.findlayis.me/", "https://chuck.findlayis.me/404"]'
+            expected: '[200, 404]'
+
+        - uses: actions/checkout@v4
+          with:
+            fetch-depth: 0
+        - name: Notify IRC Success
+          run: |
+            export COMMIT_MSG=$(git log -1 --pretty=%B)
+            export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} completed successfully with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 3}" https://convos.findlayis.me/wmb/message
+          if: success()
+        - name: Notify IRC Failure
+          run: |
+            export COMMIT_MSG=$(git log -1 --pretty=%B)
+            export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} failed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+            curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ secrets.WMB_PASSWORD }}\", \"colourcode\": 4}" https://convos.findlayis.me/wmb/message
+          if: failure()
