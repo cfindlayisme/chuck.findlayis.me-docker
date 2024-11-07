@@ -88,7 +88,6 @@ jobs:
           run: |
             mkdir -p $HOME/.kube
             echo "${{ steps.secrets.outputs.kubeconfig }}" > $HOME/.kube/config
-            echo "KUBECONFIG=$HOME/.kube/config" >> $GITHUB_ENV
             kubectl config view
           
         - name: Restart Deployment
