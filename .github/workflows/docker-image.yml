@@ -92,6 +92,7 @@ jobs:
         
         - name: Save kubeconfig to file
           run: |
+            mkdir -p $HOME/.kube
             echo '${{ steps.import-secrets.outputs.kubeconfig }}' > $HOME/.kube/config
             echo "KUBECONFIG=$HOME/.kube/config" >> $GITHUB_ENV
 
