@@ -74,12 +74,7 @@ jobs:
           uses: azure/setup-kubectl@v4
           # with:
           #   version: 'v1.27.0'  # Adjust the version as per your Kubernetes version
-
-        # - name: Set up KUBECONFIG
-        #   run: |
-        #     mkdir -p $HOME/.kube
-        #     echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
-
+          
         - name: Retrieve kubeconfig from Vault
           id: import-secrets
           uses: hashicorp/vault-action@v2.4.0
