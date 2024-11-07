@@ -75,19 +75,12 @@ jobs:
           # with:
           #   version: 'v1.27.0'  # Adjust the version as per your Kubernetes version
 
-        - name: Install Vault
-          run: |
-            curl -fsSL https://apt.releases.hashicorp.com/gpg | sudo apt-key add -
-            sudo apt-add-repository "deb [arch=amd64] https://apt.releases.hashicorp.com $(lsb_release -cs) main"
-            sudo apt-get update && sudo apt-get install vault
-
-        - name: Authenticate and retrieve secrets
+        - name: Authenticate with Vault and retrieve secrets
           uses: hashicorp/vault-action@v2.4.0
           with:
             url: https://00005175.xyz:8200
-            role: github-actions
-            method: jwt
-            path: gh-actions
+            method: token
+            token: ${{ secrets.VAULT_TOKEN }}
             secrets: |
               kv/pipeline/k3s kubeconfig
         
