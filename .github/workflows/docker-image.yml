@@ -81,6 +81,7 @@ jobs:
         #     echo "${{ secrets.KUBECONFIG }}" > $HOME/.kube/config
 
         - name: Retrieve kubeconfig from Vault
+          id: import-secrets
           uses: hashicorp/vault-action@v2.4.0
           with:
             url: ${{ secrets.VAULT_ADDR }}
