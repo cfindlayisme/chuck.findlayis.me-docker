@@ -92,9 +92,8 @@ jobs:
           
         - name: Restart Deployment
           run: |
-            export KUBECONFIG=$HOME/.kube/config
-            kubectl -n staging rollout restart deployment chuckfindlayisme
-            kubectl -n production rollout restart deployment chuckfindlayisme
+            kubectl --kubeconfig=$HOME/.kube/config -n staging rollout restart deployment chuckfindlayisme
+            kubectl --kubeconfig=$HOME/.kube/config -n production rollout restart deployment chuckfindlayisme
 
         - name: Smoke test production deployment
           uses: lakuapik/gh-actions-http-status@v1
