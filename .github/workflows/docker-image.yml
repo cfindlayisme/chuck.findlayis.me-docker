@@ -92,6 +92,7 @@ jobs:
           
         - name: Restart Deployment
           run: |
+            export KUBECONFIG=$HOME/.kube/config
             kubectl -n staging rollout restart deployment chuckfindlayisme
             kubectl -n production rollout restart deployment chuckfindlayisme
 
