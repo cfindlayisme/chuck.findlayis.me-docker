@@ -90,6 +90,11 @@ jobs:
             path: gh-actions
             secrets: |
               kv/pipeline/k3s kubeconfig
+        
+        - name: Set kubeconfig
+          run: |
+            echo "${{ steps.secrets.outputs.kubeconfig }}" > $HOME/.kube/config
+            echo "KUBECONFIG=$HOME/.kube/config" >> $GITHUB_ENV
           
         - name: Restart Deployment
           run: |
