@@ -76,7 +76,7 @@ jobs:
           #   version: 'v1.27.0'  # Adjust the version as per your Kubernetes version
 
         - name: Retrieve kubeconfig from Vault
-          uses: hashicorp/vault-action@v2.4.0
+          uses: hashicorp/vault-action@v2.8.1
           with:
             url: https://00005175.xyz:8200
             method: token
