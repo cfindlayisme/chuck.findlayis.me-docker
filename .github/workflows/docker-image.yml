@@ -87,7 +87,7 @@ jobs:
         - name: Set kubeconfig
           run: |
             mkdir -p $HOME/.kube
-            echo "${{ steps.secrets.outputs.kubeconfig }}" > $HOME/.kube/config
+            echo "${{ steps.secrets.outputs.kubeconfig }}" | base64 -d > $HOME/.kube/config
             kubectl config view
           
         - name: Restart Deployment
