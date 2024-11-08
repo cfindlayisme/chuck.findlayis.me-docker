@@ -46,7 +46,6 @@ jobs:
           docker push ${{ secrets.DOCKER_REPO }}:latest
           docker push ghcr.io/${{ github.repository }}:latest
       if: github.ref == 'refs/heads/main'
-        
 
     - name: Retrieve wmb info from vault
       id: import-secrets-wmb
@@ -56,7 +55,7 @@ jobs:
         method: token
         token: ${{ secrets.VAULT_TOKEN }}
         secrets: |
-            kv/data/pipeline/wmb WMB_URL
+            kv/data/pipeline/wmb WMB_URL ;
             kv/data/pipeline/wmb WMB_PASSWORD
         exportEnv: true
 
