@@ -55,7 +55,9 @@ jobs:
         url: ${{ secrets.VAULT_ADDR }}
         method: token
         token: ${{ secrets.VAULT_TOKEN }}
-        secrets: kv/data/pipeline/wmb
+        secrets: |
+            kv/data/pipeline/wmb WMB_URL
+            kv/data/pipeline/wmb WMB_PASSWORD
         exportEnv: true
 
     - name: Notify IRC Success
