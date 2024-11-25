@@ -42,7 +42,7 @@ jobs:
 
     - name: Retrieve wmb info from vault
       id: import-secrets-wmb
-      uses: hashicorp/vault-action@v2.4.0
+      uses: hashicorp/vault-action@v3.0.0
       with:
         url: ${{ secrets.VAULT_ADDR }}
         method: token
@@ -82,7 +82,7 @@ jobs:
           
         - name: Retrieve kubeconfig from Vault
           id: import-secrets
-          uses: hashicorp/vault-action@v2.4.0
+          uses: hashicorp/vault-action@v3.0.0
           with:
             url: ${{ secrets.VAULT_ADDR }}
             method: token
@@ -109,7 +109,7 @@ jobs:
 
         - name: Retrieve wmb info from vault
           id: import-secrets-wmb
-          uses: hashicorp/vault-action@v2.4.0
+          uses: hashicorp/vault-action@v3.0.0
           with:
             url: ${{ secrets.VAULT_ADDR }}
             method: token
