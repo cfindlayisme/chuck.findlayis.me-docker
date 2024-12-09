@@ -30,7 +30,9 @@ function viewCodingLanguages() {
         <ul class="list-group bg-dark">\
             <li class="list-group-item list-group-item-dark">Go (Golang)<br>\
             <a href="https://github.com/cfindlayisme/wmb" class="text-secondary" target="_blank">wmb (Webhook Message Bot, IRC)</a><br>\
-            <a href="https://github.com/cfindlayisme/rss-wmb" class="text-secondary" target="_blank">rss-wmb (rss feed -> wmb -> IRC message)</a>\
+            <a href="https://github.com/cfindlayisme/rss-wmb" class="text-secondary" target="_blank">rss-wmb (rss feed -> wmb -> IRC message)</a><br>\
+            <a href="https://github.com/cfindlayisme/go-utils" class="text-secondary" target="_blank">go-utils library (Some utility functions for Go development)</a><br>\
+            <a href="https://github.com/cfindlayisme/go-types" class="text-secondary" target="_blank">go-types library (Extended types/structs for Go - ie, Temperature object)</a>\
             </li>\
             <li class="list-group-item list-group-item-dark">JavaScript (Node, etc)<br>\
             <a href="https://github.com/cfindlayisme/chuck.findlayis.me-docker" class="text-secondary" target="_blank">This site (link to repo)</a><br>\
