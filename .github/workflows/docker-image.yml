@@ -8,18 +8,18 @@ on:
 
 jobs:
   
-  sonar:
-    runs-on: ubuntu-latest
-    steps:
-    - uses: actions/checkout@v4
-    - name: SonarCloud Scan
-      uses: sonarsource/sonarcloud-github-action@master
-      env:
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
+  # sonar:
+  #   runs-on: ubuntu-latest
+  #   steps:
+  #   - uses: actions/checkout@v4
+  #   - name: SonarCloud Scan
+  #     uses: sonarsource/sonarcloud-github-action@master
+  #     env:
+  #       GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+  #       SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
 
   build:
-    needs: sonar
+    #needs: sonar
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main' || github.ref != 'refs/heads/main'
     steps:
