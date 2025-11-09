@@ -35,19 +35,6 @@ jobs:
         username: ${{ github.actor }}
         password: ${{ secrets.GITHUB_TOKEN }}
 
-    - name: Retrieve wmb info from vault
-      id: import-secrets-wmb
-      uses: hashicorp/vault-action@v3.3.0
-      with:
-        url: ${{ secrets.VAULT_ADDR }}
-        method: approle
-        roleId: ${{ secrets.VAULT_ROLE_ID }}
-        secretId: ${{ secrets.VAULT_SECRET_ID }}
-        secrets: |
-            kv/data/pipeline/wmb WMB_URL ;
-            kv/data/pipeline/wmb WMB_PASSWORD
-        exportEnv: true
-
     - name: Build and push :staging tag
       uses: docker/build-push-action@v6
       with:
@@ -66,20 +53,6 @@ jobs:
         platforms: linux/amd64,linux/arm64
         push: true
         tags: ghcr.io/${{ github.repository }}:latest
-
-    - name: Notify IRC on Success
-      run: |
-        export COMMIT_MSG=$(git log -1 --pretty=%B)
-        export MESSAGE="Build and push of ghcr.io/${{ github.repository }}:staging completed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ steps.import-secrets-wmb.outputs.WMB_PASSWORD }}\", \"colourcode\": 3}" ${{ steps.import-secrets-wmb.outputs.WMB_URL }}
-      if: success()
-
-    - name: Notify IRC on Failure
-      run: |
-        export COMMIT_MSG=$(git log -1 --pretty=%B)
-        export MESSAGE="Build and push of ghcr.io/${{ github.repository }}:staging failed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-        curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ steps.import-secrets-wmb.outputs.WMB_PASSWORD }}\", \"colourcode\": 4}" ${{ steps.import-secrets-wmb.outputs.WMB_URL }}
-      if: failure()
 
 
   deploy:
@@ -105,19 +78,6 @@ jobs:
             secretId: ${{ secrets.VAULT_SECRET_ID }}
             secrets: kv/data/pipeline/k3s kubeconfig
             exportEnv: true
-
-        - name: Retrieve wmb info from vault
-          id: import-secrets-wmb
-          uses: hashicorp/vault-action@v3.3.0
-          with:
-            url: ${{ secrets.VAULT_ADDR }}
-            method: approle
-            roleId: ${{ secrets.VAULT_ROLE_ID }}
-            secretId: ${{ secrets.VAULT_SECRET_ID }}
-            secrets: |
-                kv/data/pipeline/wmb WMB_URL ;
-                kv/data/pipeline/wmb WMB_PASSWORD
-            exportEnv: true
         
         - name: Save kubeconfig to file
           run: |
@@ -140,19 +100,3 @@ jobs:
         #   with:
         #     sites: '["https://chuck.findlayis.me/", "https://chuck.findlayis.me/404"]'
         #     expected: '[200, 404]'
-
-        - uses: actions/checkout@v4
-          with:
-            fetch-depth: 0
-        - name: Notify IRC Success
-          run: |
-            export COMMIT_MSG=$(git log -1 --pretty=%B)
-            export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} completed successfully with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ steps.import-secrets-wmb.outputs.WMB_PASSWORD }}\", \"colourcode\": 3}" ${{ steps.import-secrets-wmb.outputs.WMB_URL }}
-          if: success()
-        - name: Notify IRC Failure
-          run: |
-            export COMMIT_MSG=$(git log -1 --pretty=%B)
-            export MESSAGE="Prod deploy for https://github.com/${{ github.repository }} failed with commit message: $COMMIT_MSG. See https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
-            curl -X POST -H "Content-Type: application/json" -d "{\"message\": \"$MESSAGE\", \"password\": \"${{ steps.import-secrets-wmb.outputs.WMB_PASSWORD }}\", \"colourcode\": 4}" ${{ steps.import-secrets-wmb.outputs.WMB_URL }}
-          if: failure()
