@@ -18,7 +18,7 @@ function viewContact() {
         <ul class="list-group">\
             <li class="list-group-item list-group-item-secondary"><a href="mailto:chuck@findlayis.me" class="text-secondary">chuck@findlayis.me</a></li>\
             <li class="list-group-item list-group-item-secondary"><a href="https://www.linkedin.com/in/charlesrfindlay/" target="_blank" class="text-secondary">Linkedin</a></li>\
-            <li class="list-group-item list-group-item-secondary">Darkfoe on <a href="ircs://irc.serverfail.party:6697" target="_blank" class="text-secondary">irc.serverfail.party</a></li>\
+            <li class="list-group-item list-group-item-secondary">Darkfoe on <a href="ircs://irc.libera.chat:6697" target="_blank" class="text-secondary">Libera.Chat</a></li>\
         </ul>').fadeIn();
     });
 }
