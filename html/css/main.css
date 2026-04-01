@@ -93,12 +93,12 @@ body {
   display: inline-block;
 }
 
-.list-group-item-dark {
+.list-group-item.list-group-item-dark {
   background-color: transparent;
   color: #fff;
   border-color: #444;
 }
 
-.list-group-item-dark + .list-group-item-dark {
+.list-group-item.list-group-item-dark + .list-group-item.list-group-item-dark {
   border-top-color: #444;
 }
