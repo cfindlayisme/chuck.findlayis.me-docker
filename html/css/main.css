@@ -94,7 +94,7 @@ body {
 }
 
 .list-group-item-dark {
-  background-color: #2a2a2a;
+  background-color: transparent;
   color: #fff;
   border-color: #444;
 }
