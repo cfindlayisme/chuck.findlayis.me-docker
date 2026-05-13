@@ -16,6 +16,32 @@
     <link href="css/main.css" rel="stylesheet">
 
     <script src="js/bootstrap.bundle.min.js" defer></script>
+  </head>
+
+  <body>
+    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
+      <header class="masthead mb-auto">
+        <div class="inner">
+          <h3 class="masthead-brand">Chuck Findlay</h3>
+          <nav class="nav nav-masthead justify-content-center">
+            <a class="nav-link active" href="#" data-view="home">Home</a>
+            <a class="nav-link" href="#" data-view="contact">Contact</a>
+            <a class="nav-link" href="#" data-view="portfolio">Coding Portfolio</a>
+            <a class="nav-link" target="_blank" rel="noopener" href="https://darkfoe.ca/">Blog</a>
+            <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/charlesrfindlay/">LinkedIn</a>
+            <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/cfindlayisme">GitHub</a>
+          </nav>
+        </div>
+      </header>
+
+      <main role="main" class="inner cover">
+        <div id="content" class="content-fade"></div>
+      </main>
+
+      <footer class="mastfoot mt-auto">
+        <div class="inner"></div>
+      </footer>
+    </div>
     <script>
 // chuck.findlayis.me — vanilla JS, no jQuery
 // Soft crossfade between views via CSS opacity transition.
@@ -122,31 +148,5 @@ navLinks.forEach((link) => {
 content.innerHTML = views.home();
 requestAnimationFrame(() => content.classList.add('is-visible'));
     </script>
-  </head>
-
-  <body>
-    <div class="cover-container d-flex w-100 h-100 p-3 mx-auto flex-column">
-      <header class="masthead mb-auto">
-        <div class="inner">
-          <h3 class="masthead-brand">Chuck Findlay</h3>
-          <nav class="nav nav-masthead justify-content-center">
-            <a class="nav-link active" href="#" data-view="home">Home</a>
-            <a class="nav-link" href="#" data-view="contact">Contact</a>
-            <a class="nav-link" href="#" data-view="portfolio">Coding Portfolio</a>
-            <a class="nav-link" target="_blank" rel="noopener" href="https://darkfoe.ca/">Blog</a>
-            <a class="nav-link" target="_blank" rel="noopener" href="https://www.linkedin.com/in/charlesrfindlay/">LinkedIn</a>
-            <a class="nav-link" target="_blank" rel="noopener" href="https://github.com/cfindlayisme">GitHub</a>
-          </nav>
-        </div>
-      </header>
-
-      <main role="main" class="inner cover">
-        <div id="content" class="content-fade"></div>
-      </main>
-
-      <footer class="mastfoot mt-auto">
-        <div class="inner"></div>
-      </footer>
-    </div>
   </body>
 </html>
