@@ -3,24 +3,25 @@
 
 const views = {
   home: () => `
-    <h3 class="display-6 fw-semibold mb-3">Software Developer in Canada</h3>
+    <h3 class="display-6 fw-semibold mb-3">Backend Developer &amp; SRE, Canada</h3>
     <p class="lead mb-4">
       <a target="_blank" rel="noopener" href="https://chuck.findlayis.me/pubkey.asc">My public GPG key</a>
     </p>
-    <p>I write code both professionally and as a hobby.</p>
+    <p>Go developer with a strong SRE/DevOps background. I work across the stack — from application code to infrastructure — and run a homelab that's grown well past any reasonable justification.</p>
+    <p>I write occasionally at <a href="https://darkfoe.ca" target="_blank" rel="noopener">darkfoe.ca</a> — technical posts on DevOps, infrastructure, and security research, including malware analysis from a self-built SSH honeypot.</p>
     <img src="img/vscode-sshot.png" class="img-fluid rounded shadow-sm mb-4" alt="Visual Studio Code Screenshot">
     <p class="text-muted-soft">
-      Site lovingly handcrafted (no WYSIWYG editor) with a CI/CD pipeline. Bootstrap used to make it prettier.
+      Site handcrafted without a WYSIWYG editor, shipped via CI/CD pipeline. Bootstrap for the looks.
     </p>
   `,
 
   contact: () => `
     <h3 class="display-6 fw-semibold mb-3">Contact</h3>
-    <p>Email is the preferred way to contact me async, but LinkedIn is good too. I don't do Twitter/X, Facebook, etc.</p>
+    <p>Email is the preferred way to reach me async; LinkedIn works too. Not on Twitter/X, Facebook, or anything else.</p>
     <p class="mb-4">
       PGP key is available
       <a href="https://chuck.findlayis.me/pubkey.asc" target="_blank" rel="noopener">here</a>
-      to use for emails if you're the type to do encrypted chats.
+      if you want to send encrypted mail.
     </p>
     <ul class="list-group list-group-flush-soft">
       <li class="list-group-item">
@@ -37,10 +38,8 @@ const views = {
   portfolio: () => `
     <h3 class="display-6 fw-semibold mb-3">Coding Portfolio</h3>
     <p class="mb-4">
-      By no means an exhaustive list of languages or technologies I have experience in &mdash;
-      a few links to examples of projects across a handful of languages. Not all are complete,
-      but you can at least see my thought process. Almost all have fully functional automated builds,
-      with some having full CI/CD.
+      Not an exhaustive list of what I've worked with &mdash; a sample across a few languages.
+      Most have automated builds; some have full CI/CD. Go is where the bulk of my serious work lives.
     </p>
     <div class="portfolio-stack">
       <section class="portfolio-section">
