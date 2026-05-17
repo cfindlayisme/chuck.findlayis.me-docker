@@ -82,32 +82,34 @@ const views = {
   portfolio: () => `
     <h3 class="display-6 fw-semibold mb-3">Coding Portfolio</h3>
     <p class="mb-4">
-      Not an exhaustive list of what I've worked with &mdash; a sample across a few languages.
-      Most have automated builds; some have full CI/CD. Go is where the bulk of my serious work lives.
+      A sample across languages and tooling &mdash; not exhaustive.
+      Most have automated CI/CD. Go is where the bulk of my serious work lives.
     </p>
     <div class="portfolio-stack">
       <section class="portfolio-section">
         <h4 class="portfolio-lang">Go <span class="portfolio-lang-sub">/ Golang</span></h4>
         <ul class="portfolio-links">
-          <li><a href="https://github.com/cfindlayisme/wmb" target="_blank" rel="noopener">wmb</a> <span class="link-desc">webhook message bot for IRC</span></li>
-          <li><a href="https://github.com/cfindlayisme/rss-wmb" target="_blank" rel="noopener">rss-wmb</a> <span class="link-desc">rss feed → wmb → IRC message</span></li>
-          <li><a href="https://github.com/cfindlayisme/go-utils" target="_blank" rel="noopener">go-utils</a> <span class="link-desc">utility functions for Go development</span></li>
-          <li><a href="https://github.com/cfindlayisme/go-types" target="_blank" rel="noopener">go-types</a> <span class="link-desc">extended types/structs (e.g. Temperature)</span></li>
-          <li><a href="https://github.com/cfindlayisme/ssh-bastion" target="_blank" rel="noopener">ssh-bastion</a> <span class="link-desc">SSH bastion host</span></li>
+          <li><a href="https://github.com/cfindlayisme/smtp-tester" target="_blank" rel="noopener">smtp-tester</a> <span class="link-desc">mail security scanner &mdash; audits SPF, DKIM, DMARC, TLS, open relay, user enumeration</span></li>
+          <li><a href="https://github.com/cfindlayisme/ssh-bastion" target="_blank" rel="noopener">ssh-bastion</a> <span class="link-desc">SSH bastion host daemon</span></li>
+          <li><a href="https://github.com/cfindlayisme/wmb" target="_blank" rel="noopener">wmb</a> <span class="link-desc">webhook &rarr; IRC bridge with pluggable message routing</span></li>
+          <li><a href="https://github.com/cfindlayisme/rss-wmb" target="_blank" rel="noopener">rss-wmb</a> <span class="link-desc">RSS feed &rarr; IRC notifier (wmb extension)</span></li>
+          <li><a href="https://github.com/cfindlayisme/go-utils" target="_blank" rel="noopener">go-utils</a> <span class="link-desc">shared utility library for Go projects</span></li>
+          <li><a href="https://github.com/cfindlayisme/go-types" target="_blank" rel="noopener">go-types</a> <span class="link-desc">extended type definitions (e.g. Temperature, units)</span></li>
+        </ul>
+      </section>
+      <section class="portfolio-section">
+        <h4 class="portfolio-lang">CI/CD <span class="portfolio-lang-sub">/ Platform</span></h4>
+        <ul class="portfolio-links">
+          <li><a href="https://github.com/cfindlayisme/golang-builder" target="_blank" rel="noopener">golang-builder</a> <span class="link-desc">reusable GH Action: test, multi-arch Docker build, GHCR push, Kubernetes deploy with Vault secrets</span></li>
+          <li><a href="https://github.com/cfindlayisme/docker-builder" target="_blank" rel="noopener">docker-builder</a> <span class="link-desc">reusable GH Action: multi-platform Docker builds with optional K8s rollout</span></li>
+          <li><a href="https://github.com/cfindlayisme/nodejs-builder" target="_blank" rel="noopener">nodejs-builder</a> <span class="link-desc">reusable GH Action: test, build, push to GHCR, deploy Node.js to Kubernetes</span></li>
         </ul>
       </section>
       <section class="portfolio-section">
         <h4 class="portfolio-lang">JavaScript <span class="portfolio-lang-sub">/ Node</span></h4>
         <ul class="portfolio-links">
           <li><a href="https://github.com/cfindlayisme/chuck.findlayis.me-docker" target="_blank" rel="noopener">this site</a> <span class="link-desc">repo for chuck.findlayis.me</span></li>
-<li><a href="https://darkfoe.ca" target="_blank" rel="noopener">darkfoe.ca</a> <span class="link-desc">my blog (closed source, NodeJS)</span></li>
-        </ul>
-      </section>
-      <section class="portfolio-section">
-        <h4 class="portfolio-lang">Homelab <span class="portfolio-lang-sub">/ Hobbyist</span></h4>
-        <ul class="portfolio-links">
-          <li><a href="https://github.com/cfindlayisme/factorio-docker" target="_blank" rel="noopener">factorio-docker</a> <span class="link-desc">containerised Factorio server</span></li>
-          <li><a href="https://github.com/cfindlayisme/terraria-docker" target="_blank" rel="noopener">terraria-docker</a> <span class="link-desc">containerised Terraria server</span></li>
+          <li><a href="https://darkfoe.ca" target="_blank" rel="noopener">darkfoe.ca</a> <span class="link-desc">my blog (closed source, NodeJS)</span></li>
         </ul>
       </section>
     </div>
